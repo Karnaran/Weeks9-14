@@ -24,4 +24,11 @@ public class Knight : MonoBehaviour
 
         Debug.Log("Step!");
     }
+
+    public void Jump()
+
+    {
+       
+    }
+
 }
