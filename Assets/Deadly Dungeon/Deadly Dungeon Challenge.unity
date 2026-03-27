@@ -1420,8 +1420,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1042422957}
   - component: {fileID: 1042422956}
+  - component: {fileID: 1042422958}
   m_Layer: 0
-  m_Name: RPGpack_sheet_36 (1)
+  m_Name: SuperSpeedBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1501,6 +1502,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1042422958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042422955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064ec35297c2ccc48913bd8eadc0f1bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SuperSpeedItemRange
+  PlayerObject: {fileID: 1067058164206151858}
+  playerPosistion: {x: 0, y: 0}
+  pickUpRange: 0.5
+  keyInput: {fileID: 8699610323487663056}
 --- !u!1 &1393419797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,7 +2222,7 @@ GameObject:
   - component: {fileID: 8699610323487663053}
   - component: {fileID: 8699610323487663054}
   - component: {fileID: 8699610323487663056}
-  - component: {fileID: 8699610323487663055}
+  - component: {fileID: 8699610323487663057}
   m_Layer: 0
   m_Name: Event Driven Player
   m_TagString: Untagged
@@ -3042,7 +3059,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431ff7fffca80d5418b8e1e45eb0fbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupItem
---- !u!114 &8699610323487663055
+--- !u!114 &8699610323487663056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067058164206151858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a84c3cbf986a6a4c803518d78d98fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyInput
+  InteractionInput:
+    m_Name: Interaction Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 01717585-e0ad-4645-92cf-ed8f7b5608f7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  KeyInteraction: 0
+--- !u!114 &8699610323487663057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3156,31 +3195,10 @@ MonoBehaviour:
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8699610323487663056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1067058164206151858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a84c3cbf986a6a4c803518d78d98fe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KeyInput
-  InteractionInput:
-    m_Name: Interaction Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 01717585-e0ad-4645-92cf-ed8f7b5608f7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

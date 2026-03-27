@@ -5,7 +5,7 @@ public class KeyInput : MonoBehaviour
 {
 
     public InputAction InteractionInput;
-
+    public bool KeyInteraction; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +22,21 @@ public class KeyInput : MonoBehaviour
     public void OnPickupCollectedEvent(InputAction.CallbackContext interAct )
 
     {
-      Debug.Log("pickup" + interAct.phase );
+        Debug.Log( " pickup " + interAct.phase );
+
+        if (interAct.phase == InputActionPhase.Started)
+
+        {
+            //print("pressed");
+            KeyInteraction = true;
+        }
+
+        else if (interAct.phase == InputActionPhase.Canceled)
+
+        {
+            //print("release");
+            KeyInteraction = false;
+        }
     }
+
 }
