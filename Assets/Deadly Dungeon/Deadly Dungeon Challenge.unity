@@ -1518,6 +1518,8 @@ MonoBehaviour:
   playerPosistion: {x: 0, y: 0}
   pickUpRange: 0.5
   keyInput: {fileID: 8699610323487663056}
+  eventDrivenLara: {fileID: 8201220833175912574}
+  timer: 5
 --- !u!1 &1393419797
 GameObject:
   m_ObjectHideFlags: 0
