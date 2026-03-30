@@ -22,21 +22,35 @@ public class KeyInput : MonoBehaviour
     public void OnPickupCollectedEvent(InputAction.CallbackContext interAct )
 
     {
-        Debug.Log( " pickup " + interAct.phase );
 
-        if (interAct.phase == InputActionPhase.Started)
-
+        if (interAct.started)
         {
-            //print("pressed");
+            print("pressed");
             KeyInteraction = true;
         }
 
-        else if (interAct.phase == InputActionPhase.Canceled)
-
+        else if (interAct.canceled)
         {
-            //print("release");
+            print("release");
             KeyInteraction = false;
         }
+
+
+        //// Debug.Log( " pickup " + interAct.phase );
+
+        //if (interAct.phase == InputActionPhase.Performed)
+
+        //{
+        //    print("pressed");
+        //    KeyInteraction = true;
+        //}
+
+        //else if (interAct.phase == InputActionPhase.Canceled)
+
+        //{
+        //    print("release");
+        //    KeyInteraction = false;
+        //}
     }
 
 }

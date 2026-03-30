@@ -28,7 +28,7 @@ public class SuperSpeedItemRange : MonoBehaviour
                     //Debug.Log("hover" + playerPosistion);
 
                     if (keyInput.KeyInteraction)
-                    {
+                    { 
                         print("pickedup");
 
                     }
