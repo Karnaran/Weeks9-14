@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using System.Threading;
 using UnityEngine;
 
 public class SuperSpeedItemRange : MonoBehaviour
@@ -8,6 +10,8 @@ public class SuperSpeedItemRange : MonoBehaviour
     public Vector2 playerPosistion;
     public float pickUpRange;
     public KeyInput keyInput;
+    public EventDrivenLara eventDrivenLara;
+    public float timer = 5;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,8 +32,10 @@ public class SuperSpeedItemRange : MonoBehaviour
                     //Debug.Log("hover" + playerPosistion);
 
                     if (keyInput.KeyInteraction)
-                    { 
+                    {
                         print("pickedup");
+
+                        SpeedPowerUp(); 
 
                     }
                 }
@@ -38,8 +44,27 @@ public class SuperSpeedItemRange : MonoBehaviour
                 //and positive/negative Y axis
             }
 
+           
+        }
+
+        if (timer > 0)
+
+        {
+            timer -= Time.deltaTime;
 
         }
+        else
+
+        {
+            eventDrivenLara.speed = 2;
+        }
+    }
+
+    public void SpeedPowerUp()
+    {
+        eventDrivenLara.speed = 10;
+        timer = 5;
+
     }
 }
 
