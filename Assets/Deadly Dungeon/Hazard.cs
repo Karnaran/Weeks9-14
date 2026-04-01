@@ -9,7 +9,7 @@ public class Hazard : MonoBehaviour
     public UnityEvent OnEnterHazard;
     public UnityEvent OnExitHazard;
     bool wasInHazardLastFrame;
-
+    public ModularSliderVisuals ModularSliderVisuals;
     void Update()
     {
         wasInHazardLastFrame = isInHazard;

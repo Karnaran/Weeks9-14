@@ -35,36 +35,35 @@ public class SuperSpeedItemRange : MonoBehaviour
                     {
                         print("pickedup");
 
-                        SpeedPowerUp(); 
+                        SpeedPowerUp();  //calling the speed function here as it is contantly updating when interacted with
 
                     }
                 }
 
                 //overall, this whole block dictates the range of the item and the player and whether both of them are situated inbetween the barriers of the positive/negative X axis
                 //and positive/negative Y axis
-            }
-
-           
+            }     
         }
 
         if (timer > 0)
 
         {
-            timer -= Time.deltaTime;
+            timer -= Time.deltaTime; //the timer kicks off once the program is active, but runs out and stays dormant unless the player re-initaties it 
+                                    //by interacting with the item which in turn will start the revere timer from 5 to 0 
 
         }
         else
 
         {
-            eventDrivenLara.speed = 2;
+            eventDrivenLara.speed = 2; //Lara's speed returns to normal after 5 seconds from 10.
         }
     }
 
     public void SpeedPowerUp()
     {
-        eventDrivenLara.speed = 10;
+        eventDrivenLara.speed = 10; 
         timer = 5;
-
+        //setting up the basis to player's updated speed once picking up the powerup and the timer reduction
     }
 }
 

@@ -6,11 +6,13 @@ public class ModularSliderVisuals : MonoBehaviour
 {
     Slider slider;
     public float value;
+    public float maxValue;
     public bool countUp = false;
 
     //event driven code
     public bool timerIsRunning = false;
     public UnityEvent TimeIsUp;
+    
 
     public void SetDirection(bool isTimer)
     {
@@ -34,7 +36,7 @@ public class ModularSliderVisuals : MonoBehaviour
 
     public void UpdateSlider(float currentValue)
     {
-        slider.value = currentValue;
+        slider.value += currentValue;
     }
 
     public void ShowSlider()
