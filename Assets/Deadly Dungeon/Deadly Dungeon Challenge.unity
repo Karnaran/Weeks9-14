@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 90742890}
   - component: {fileID: 90742892}
   m_Layer: 0
-  m_Name: Water
+  m_Name: poisonous puddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.71279144, b: 1, a: 1}
+  m_Color: {r: 0.4, g: 0.2, b: 0.6, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -368,7 +368,6 @@ MonoBehaviour:
   OnExitHazard:
     m_PersistentCalls:
       m_Calls: []
-  ModularSliderVisuals: {fileID: 0}
 --- !u!1 &183164309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,6 +1555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 064ec35297c2ccc48913bd8eadc0f1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SuperSpeedItemRange
+  animatorController: {fileID: 8427681039186996900}
   PlayerObject: {fileID: 1067058164206151858}
   playerPosistion: {x: 0, y: 0}
   pickUpRange: 0.5
@@ -2156,7 +2156,7 @@ GameObject:
   - component: {fileID: 2063518276}
   - component: {fileID: 2063518278}
   m_Layer: 0
-  m_Name: Water (1)
+  m_Name: poisonous water lake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2212,7 +2212,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.71279144, b: 1, a: 1}
+  m_Color: {r: 0.4, g: 0.2, b: 0.6, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2256,7 +2256,6 @@ MonoBehaviour:
   OnExitHazard:
     m_PersistentCalls:
       m_Calls: []
-  ModularSliderVisuals: {fileID: 0}
 --- !u!224 &369940791003827806
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3024,6 +3023,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ModularSliderVisuals: {fileID: 3396933685838229308}
+  CoroutineShieldItemRange: {fileID: 1393419800}
 --- !u!95 &8427681039186996900
 Animator:
   serializedVersion: 7
@@ -3139,7 +3140,6 @@ MonoBehaviour:
   OnExitHazard:
     m_PersistentCalls:
       m_Calls: []
-  ModularSliderVisuals: {fileID: 0}
 --- !u!114 &8699610323487663054
 MonoBehaviour:
   m_ObjectHideFlags: 0
