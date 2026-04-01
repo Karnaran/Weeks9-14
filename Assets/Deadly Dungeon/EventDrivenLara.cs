@@ -24,7 +24,8 @@ public class EventDrivenLara : MonoBehaviour
     public UnityEvent<float> SetupSwimTimer; //pass max timer value. Use to set value to 0, max value, hide slider
     public UnityEvent StartSwimTimer;
     public UnityEvent StopSwimTimer;
-    
+    public ModularSliderVisuals ModularSliderVisuals;
+    public CoroutineShieldItemRange CoroutineShieldItemRange;
 
     void Start()
     {
@@ -130,14 +131,25 @@ public class EventDrivenLara : MonoBehaviour
         if (isDead) return;
 
         //take damage
-        health -= damage;
-        UpdateHealthbar.Invoke(health);
-        animatorController.SetTrigger("takeDamage");
+
+        
+        //UpdateHealthbar.Invoke(health);
+       
 
         //test for death
-        if (!isDead && health <= 0)
+        if (!isDead && ModularSliderVisuals.value <= 0)
         {
             Die();
+        }
+        if (!CoroutineShieldItemRange.currentShield) 
+        {
+            ModularSliderVisuals.UpdateSlider(-2);
+            animatorController.SetTrigger("takeDamage");
+            health -= damage;
+        }
+        else
+        {
+            Debug.Log("not taking dmge");
         }
     }
 

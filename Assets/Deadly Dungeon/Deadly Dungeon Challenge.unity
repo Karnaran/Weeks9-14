@@ -266,6 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 90742891}
   - component: {fileID: 90742890}
+  - component: {fileID: 90742892}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -347,6 +348,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90742892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90742889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1655fc43f68d7bc4281f9c6c3b325f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hazard
+  hazardSRs: []
+  isInHazard: 0
+  OnEnterHazard:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitHazard:
+    m_PersistentCalls:
+      m_Calls: []
+  ModularSliderVisuals: {fileID: 0}
 --- !u!1 &183164309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,8 +1351,9 @@ GameObject:
   m_Component:
   - component: {fileID: 953720659}
   - component: {fileID: 953720658}
+  - component: {fileID: 953720660}
   m_Layer: 0
-  m_Name: RPGpack_sheet_10 (1)
+  m_Name: Healthbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1410,6 +1433,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &953720660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953720657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963f7f5d5c08f7b4c8c6ca3905242d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthItemRange
+  PlayerObject: {fileID: 1067058164206151858}
+  playerPosistion: {x: 0, y: 0}
+  pickUpRange: 0.5
+  keyInput: {fileID: 8699610323487663056}
+  ModularSliderVisuals: {fileID: 3396933685838229308}
+  eventDrivenLara: {fileID: 8201220833175912574}
+  timer: 5
 --- !u!1 &1042422955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,7 +1574,7 @@ GameObject:
   - component: {fileID: 1393419798}
   - component: {fileID: 1393419800}
   m_Layer: 0
-  m_Name: RPGpack_sheet_37 (1)
+  m_Name: shieldbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1605,13 +1647,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393419797}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0016914601, w: 0.9999986}
   m_LocalPosition: {x: -5.7, y: 2.15, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.194}
 --- !u!114 &1393419800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1629,8 +1671,10 @@ MonoBehaviour:
   pickUpRange: 0.5
   keyInput: {fileID: 8699610323487663056}
   eventDrivenLara: {fileID: 8201220833175912574}
-  ShieldManfestation: {fileID: 0}
+  ShieldManfestation: {fileID: 2119050084235178518}
+  shield: {fileID: 6647210340886813897, guid: 4979442144e60b14783052b6ebdbcb33, type: 3}
   timer: 5
+  currentShield: {fileID: 0}
 --- !u!1 &1735019248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,6 +2154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2063518277}
   - component: {fileID: 2063518276}
+  - component: {fileID: 2063518278}
   m_Layer: 0
   m_Name: Water (1)
   m_TagString: Untagged
@@ -2191,6 +2236,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2063518278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063518275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1655fc43f68d7bc4281f9c6c3b325f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hazard
+  hazardSRs: []
+  isInHazard: 0
+  OnEnterHazard:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitHazard:
+    m_PersistentCalls:
+      m_Calls: []
+  ModularSliderVisuals: {fileID: 0}
 --- !u!224 &369940791003827806
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2265,6 +2331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  maxValue: 0
   countUp: 1
   timerIsRunning: 0
   TimeIsUp:
@@ -2406,6 +2473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  maxValue: 10
   countUp: 0
   timerIsRunning: 0
   TimeIsUp:
@@ -3049,26 +3117,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1655fc43f68d7bc4281f9c6c3b325f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hazard
-  hazardSRs: []
+  hazardSRs:
+  - {fileID: 90742890}
+  - {fileID: 2063518276}
   isInHazard: 0
   OnEnterHazard:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1067058164206151858}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 8201220833175912574}
+        m_TargetAssemblyTypeName: EventDrivenLara, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   OnExitHazard:
     m_PersistentCalls:
       m_Calls: []
+  ModularSliderVisuals: {fileID: 0}
 --- !u!114 &8699610323487663054
 MonoBehaviour:
   m_ObjectHideFlags: 0

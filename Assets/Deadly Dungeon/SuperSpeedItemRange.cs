@@ -5,7 +5,7 @@ using UnityEngine;
 public class SuperSpeedItemRange : MonoBehaviour
 {
 
-
+    public Animator animatorController;
     public GameObject PlayerObject;
     public Vector2 playerPosistion;
     public float pickUpRange;
@@ -56,12 +56,16 @@ public class SuperSpeedItemRange : MonoBehaviour
 
         {
             eventDrivenLara.speed = 2; //Lara's speed returns to normal after 5 seconds from 10.
+            animatorController.SetBool("superspeed", false);
+
         }
     }
 
     public void SpeedPowerUp()
     {
-        eventDrivenLara.speed = 10; 
+        eventDrivenLara.speed = 15;
+        animatorController.SetBool("superspeed", true);
+
         timer = 5;
         //setting up the basis to player's updated speed once picking up the powerup and the timer reduction
     }
