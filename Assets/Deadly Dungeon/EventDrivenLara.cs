@@ -137,7 +137,7 @@ public class EventDrivenLara : MonoBehaviour
        
 
         //test for death
-        if (!isDead && ModularSliderVisuals.value <= 0)
+        if (!isDead && health <= 0)
         {
             Die();
         }

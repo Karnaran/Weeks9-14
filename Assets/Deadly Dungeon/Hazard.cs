@@ -9,12 +9,16 @@ public class Hazard : MonoBehaviour
     public UnityEvent OnEnterHazard;
     public UnityEvent OnExitHazard;
     bool wasInHazardLastFrame;
-
+    public float timer = 5;
+    public float hurttimer = 2;
+    public float TakeDamage = 2;
+    public float resetTimer = 0;    
+    public CoroutineShieldItemRange CoroutineShieldItemRange;
     void Update()
     {
         wasInHazardLastFrame = isInHazard;
         bool isInHazardThisFrame = false; //this is how we tell if the in hazard never got triggered this frame
-        foreach(SpriteRenderer sr in hazardSRs)
+        foreach (SpriteRenderer sr in hazardSRs)
         {
             if (sr.bounds.Contains(transform.position))
             {
@@ -44,5 +48,16 @@ public class Hazard : MonoBehaviour
             OnExitHazard.Invoke();
             isInHazard = false;
         }
+
+        if (CoroutineShieldItemRange.currentShield)
+
+        {
+            CoroutineShieldItemRange.ShieldpowerUp();
+
+            timer = 5;
+        }
+
     }
+
+
 }

@@ -368,6 +368,11 @@ MonoBehaviour:
   OnExitHazard:
     m_PersistentCalls:
       m_Calls: []
+  timer: 5
+  hurttimer: 2
+  TakeDamage: 2
+  resetTimer: 0
+  CoroutineShieldItemRange: {fileID: 0}
 --- !u!1 &183164309
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2261,11 @@ MonoBehaviour:
   OnExitHazard:
     m_PersistentCalls:
       m_Calls: []
+  timer: 5
+  hurttimer: 2
+  TakeDamage: 2
+  resetTimer: 0
+  CoroutineShieldItemRange: {fileID: 0}
 --- !u!224 &369940791003827806
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3140,6 +3150,11 @@ MonoBehaviour:
   OnExitHazard:
     m_PersistentCalls:
       m_Calls: []
+  timer: 5
+  hurttimer: 2
+  TakeDamage: 2
+  resetTimer: 0
+  CoroutineShieldItemRange: {fileID: 0}
 --- !u!114 &8699610323487663054
 MonoBehaviour:
   m_ObjectHideFlags: 0
