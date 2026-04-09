@@ -12,11 +12,11 @@ public class LocalMultiplayercontrol : MonoBehaviour
     public float speed = 5;
     public AnimationCurve AnimationCurve;
     public Transform DuckTransform;
-   public  AudioSource AudioSource;
+    public AudioSource AudioSource;
     public AudioClip handleCoins;
-    public TrailRenderer trailRenderer; 
-    Vector3 min = new Vector3 (0,0,0);
-    Vector3 max =  Vector3.one;
+    public TrailRenderer trailRenderer;
+    Vector3 min = new Vector3(0, 0, 0);
+    Vector3 max = Vector3.one;
     Vector3 scaling;
     void Start()
     {
@@ -50,7 +50,7 @@ public class LocalMultiplayercontrol : MonoBehaviour
 
     {
         duckshift();
-       // playerInput = Instantiate(playerInput);
+        // playerInput = Instantiate(playerInput);
         yield return null;
         AudioSource.PlayOneShot(handleCoins);
     }
@@ -68,20 +68,20 @@ public class LocalMultiplayercontrol : MonoBehaviour
                 float curveValue = AnimationCurve.Evaluate(t);
                 Duck += Time.deltaTime;
                 scaling = (Vector3.Lerp(min, max, curveValue));
-                DuckTransform.localScale = scaling; 
+                DuckTransform.localScale = scaling;
             }
 
-    }
+        }
     }
 
     public void Trailfollow(InputAction.CallbackContext context)
 
     {
-        //movementInput = context.ReadValue<Vector2>();
-        //transform.position += (Vector3)movementInput * speed * Time.deltaTime;
+        movementInput = context.ReadValue<Vector2>();
+        transform.position += (Vector3)movementInput * speed * Time.deltaTime;
         trailRenderer.enabled = true;
         speed = 10;
-               
+
     }
     IEnumerator speedTrail()
 
@@ -91,18 +91,25 @@ public class LocalMultiplayercontrol : MonoBehaviour
     }
 
     void trail()
-
     {
-        float Duck = 0;
+
         {
-
-
-            while (Duck < 1)
             {
-                trailRenderer.enabled = false;
+
+                float Duck = 0;
+
+
+
+                while (Duck < 1)
+                {
+                    trailRenderer.enabled = false;
+                    speed = 5;
+                }
 
             }
-
         }
+    }
+}
 
-    
+
+
