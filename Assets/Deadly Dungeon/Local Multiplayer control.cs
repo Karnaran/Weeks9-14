@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,9 +16,13 @@ public class LocalMultiplayercontrol : MonoBehaviour
     public AudioSource AudioSource;
     public AudioClip handleCoins;
     public TrailRenderer trailRenderer;
-    Vector3 min = new Vector3(0, 0, 0);
-    Vector3 max = Vector3.one;
+   public  Vector3 min = new Vector3(0, 0, 0);
+   public Vector3 max = Vector3.one;
     Vector3 scaling;
+    public CinemachineImpulseSource impulseSource;
+    public ParticleSystem particles;
+    public SpriteRenderer spriteRenderer;
+
     void Start()
     {
 
@@ -28,7 +33,7 @@ public class LocalMultiplayercontrol : MonoBehaviour
     void Update()
     {
         transform.position += (Vector3)movementInput * speed * Time.deltaTime;
-
+        particles.Emit(10);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -38,76 +43,81 @@ public class LocalMultiplayercontrol : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        StartCoroutine(Attacking());
         if (context.performed)
         {
             Debug.Log("Player " + playerInput.playerIndex + ": Attacking!");
             manager.PlayerAttacking(playerInput);
+            StartCoroutine(duckshift());
+
         }
     }
 
-    IEnumerator Attacking()
+
+    public void playerStriked()
 
     {
-        duckshift();
-        // playerInput = Instantiate(playerInput);
-        yield return null;
-        AudioSource.PlayOneShot(handleCoins);
+        transform.rotation = Quaternion.identity;   
+        spriteRenderer.color = Color.red;
+        impulseSource.GenerateImpulse();
+       
     }
 
-    void duckshift()
+
+    IEnumerator duckshift()
     {
 
         float Duck = 0;
+
+
+
+        while (Duck < 1)
         {
-
-
-            while (Duck < 1)
-            {
-                float t = Duck / 1;
-                float curveValue = AnimationCurve.Evaluate(t);
-                Duck += Time.deltaTime;
-                scaling = (Vector3.Lerp(min, max, curveValue));
-                DuckTransform.localScale = scaling;
-            }
-
+            float t = Duck / 1;
+            float curveValue = AnimationCurve.Evaluate(t);
+            Duck += Time.deltaTime;
+            scaling = (Vector3.Lerp(min, max, curveValue));
+            DuckTransform.localScale = scaling;
+            yield return null;
         }
+        AudioSource.PlayOneShot(handleCoins);
+
     }
 
     public void Trailfollow(InputAction.CallbackContext context)
 
     {
-        movementInput = context.ReadValue<Vector2>();
-        transform.position += (Vector3)movementInput * speed * Time.deltaTime;
-        trailRenderer.enabled = true;
-        speed = 10;
-
-    }
-    IEnumerator speedTrail()
-
-    {
-        trail();
-        yield return null;
-    }
-
-    void trail()
-    {
-
+        if (context.phase == InputActionPhase.Performed)
         {
-            {
+            trailRenderer.enabled = true;
+            speed = 10;
+            StartCoroutine(trail());
 
-                float Duck = 0;
-
-
-
-                while (Duck < 1)
-                {
-                    trailRenderer.enabled = false;
-                    speed = 5;
-                }
-
-            }
         }
+    }
+
+
+    IEnumerator trail()
+    {
+
+
+
+
+        float Duck = 0;
+
+
+
+        while (Duck < 1)
+        {
+            Duck += Time.deltaTime;
+            yield return null;
+
+        }
+
+        trailRenderer.enabled = false;
+        speed = 5;
+        print(Duck);
+
+
     }
 }
 

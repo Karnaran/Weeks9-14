@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Cinemachine;
+using TMPro;
 
 public class LocalMultiplayerManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public List<Sprite> playersprites;
     public List<PlayerInput> Players;
+    public bool isDead;
+    public CinemachineImpulseSource impulseSource;
+    LocalMultiplayercontrol LocalMultiplayercontrol;
     public void onPlayerJoined(PlayerInput player)
 
     {
@@ -29,13 +34,16 @@ public class LocalMultiplayerManager : MonoBehaviour
 
             if (Vector2.Distance(attackPlayer.transform.position, Players[i].transform.position) < 0.5f)
                 {
-               
-                
+
+                Players[i].GetComponent<LocalMultiplayercontrol>().playerStriked();
+                isDead = true;
             Debug.Log("Player " + attackPlayer.playerIndex + " hit player " + Players[i].playerIndex);
         }
     }
+
+        
 }
-    
+
 
 
 }
